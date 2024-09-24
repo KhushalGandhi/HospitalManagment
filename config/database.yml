@@ -1,0 +1,22 @@
+# PostgreSQL configuration
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres     # Replace this with your PostgreSQL username
+  password: heropanti     # Replace this with your PostgreSQL password
+  host: localhost
+
+development:
+  <<: *default
+  database: HospitalManagment
+
+test:
+  <<: *default
+  database: HospitalManagment_test
+
+production:
+  <<: *default
+  database: HospitalManagment_production
+  username: myappuser     # Use production credentials
+  password: <%= ENV['HOSPITAL_MANAGEMENT_DATABASE_PASSWORD'] %>
